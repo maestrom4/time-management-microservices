@@ -2,7 +2,7 @@ Project Name
 This project is a demonstration of running a multi-language application on Kubernetes using Minikube. It includes components built with Docker, Next.js, Node.js, Golang, and the Gin framework.
 
 System Archi
-![GitHub Logo]([https://github.com/username/repository/raw/main/image.png](https://github.com/maestrom4/Bundy-management-microservice/blob/develop/bundyRevamp.jpg))
+![System Archi]([https://github.com/username/repository/raw/main/image.png](https://github.com/maestrom4/Bundy-management-microservice/blob/develop/bundyRevamp.jpg)
 
 
 Table of Contents
