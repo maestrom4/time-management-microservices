@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: file-generator-service
+  namespace: development
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: file-generator-service
+  template:
+    metadata:
+      labels:
+        app: file-generator-service
+    spec:
+      containers:
+      - name: file-generator-service
+        image: file-generator-service-image:latest
+        ports:
+        - containerPort: 8080

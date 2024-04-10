@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-manager-service
+  namespace: development
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: db-manager-service
+  template:
+    metadata:
+      labels:
+        app: db-manager-service
+    spec:
+      containers:
+      - name: db-manager-service
+        image: db-manager-service-image:latest
+        ports:
+        - containerPort: 8080

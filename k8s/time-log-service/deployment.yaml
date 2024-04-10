@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: time-log-service
+  namespace: development
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: time-log-service
+  template:
+    metadata:
+      labels:
+        app: time-log-service
+    spec:
+      containers:
+      - name: time-log-service
+        image: time-log-service-image:latest
+        ports:
+        - containerPort: 8080

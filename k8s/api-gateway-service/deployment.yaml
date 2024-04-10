@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gateway-service
+  namespace: development
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api-gateway-service
+  template:
+    metadata:
+      labels:
+        app: api-gateway-service
+    spec:
+      containers:
+      - name: api-gateway-service
+        image: api-gateway-service-image:latest
+        ports:
+        - containerPort: 8080

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: file-generator-service
+  namespace: development
+spec:
+  selector:
+    app: file-generator-service
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  type: ClusterIP
