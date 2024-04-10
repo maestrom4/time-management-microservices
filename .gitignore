@@ -1,0 +1,24 @@
+# Ignore system files
+.DS_Store
+
+# Ignore IDE and editor files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+*.sln.cache
+*~
+
+# Ignore compiled binaries
+/bin/
+/pkg/
+/*.exe
+/*.dll
+
+# Ignore dependencies
+/vendor/
+/node_modules/
+/.venv/

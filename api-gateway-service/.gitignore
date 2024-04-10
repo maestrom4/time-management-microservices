@@ -1,0 +1,40 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+
+# Output of the go build command
+/bin/
+/pkg/
+
+# Dependency directories (remove the comment below if you're using vendoring)
+#/vendor/
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+
+# VSCode files
+.vscode/
+
+# macOS files
+.DS_Store
+
+# Profile data for 'go test'
+*.out
+
+# Compiled Go source files
+*.o
+
+# Certificate files
+*.crt
+*.key
+
+# Log files
+*.log
+
+# Environment variables files
+.env
