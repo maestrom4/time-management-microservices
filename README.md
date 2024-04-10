@@ -3,7 +3,7 @@ This project is a demonstration of running a multi-language application on Kuber
 
 System Archi
 
-![GitHub Logo]([https://github.com/username/repository/raw/main/image.png](https://github.com/maestrom4/Bundy-management-microservice/blob/develop/bundyRevamp.jpg?raw=true))
+![Image]([https://github.com/username/repository/raw/main/image.png](https://github.com/maestrom4/Bundy-management-microservice/blob/develop/bundyRevamp.jpg?raw=true))
 
 
 Table of Contents
