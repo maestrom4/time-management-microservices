@@ -16,6 +16,21 @@ System Archi
 - [License](#license)
 - [Technologies and Design Patterns](#technologies-and-design-patterns)
 
+# Technologies and Design Patterns
+Typescript
+Next.js
+Node.js
+Microservices
+Kubernetes
+Minikube
+Docker
+Atomic Pattern
+Redux Slice Version
+Golang
+Tailwind with Styled Components for fast designing and full customization
+MongoDB
+GraphQL for database management with MongoDB
+
 ## Introduction
 The purpose of this project is to showcase how to deploy a multi-language application on Kubernetes using Minikube. It includes the following components:
 
