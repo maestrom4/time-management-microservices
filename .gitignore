@@ -21,4 +21,4 @@
 # Ignore dependencies
 /vendor/
 /node_modules/
-/.venv/
+/client/node_modules/
