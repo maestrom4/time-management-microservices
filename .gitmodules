@@ -10,3 +10,6 @@
 [submodule "payslip-service"]
 	path = payslip-service
 	url = git@github.com:maestrom4/payslip-service.git
+[submodule "time-log-service"]
+	path = time-log-service
+	url = git@github.com:maestrom4/time-log-service.git
