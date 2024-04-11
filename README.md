@@ -1,7 +1,5 @@
 # Bundy Client
 
-Brief project description goes here.
-
 ## Table of Contents
 
 - [Introduction](#introduction)
