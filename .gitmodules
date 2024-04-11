@@ -7,3 +7,6 @@
 [submodule "employee-service"]
 	path = employee-service
 	url = git@github.com:maestrom4/employee-service.git
+[submodule "payslip-service"]
+	path = payslip-service
+	url = git@github.com:maestrom4/payslip-service.git
