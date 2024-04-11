@@ -1,0 +1,30 @@
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import { useEffect } from 'react';
+
+const Home: NextPage = () => {
+  useEffect(() => {
+    // Any JavaScript code you want to run on the client-side.
+  }, []);
+
+  return (
+    <div>
+      <Head>
+        <title>My Next.js App</title>
+        <meta name="description" content="Welcome to my Next.js application" />
+        {/* Add any additional tags you might need */}
+      </Head>
+
+      <main>
+        <h1>Welcome to My Next.js App</h1>
+        {/* Your page content */}
+      </main>
+
+      <footer>
+        {/* Your footer here */}
+      </footer>
+    </div>
+  );
+};
+
+export default Home;
