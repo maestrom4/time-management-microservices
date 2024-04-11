@@ -1,7 +1,7 @@
 Kubernetes Orchestration for a Multi-Language Microservice Application
 
 ## Introduction:
-This project illustrates my orchestration of a multi-language microservice architecture using Kubernetes with Minikube. It highlights my use of Docker for containerizing each service, incorporating a Next.js frontend, Node.js for backend services, and Golang powered by the Gin framework. The project employs a variety of technologies and design patterns including Typescript, the Atomic Design pattern for UI development, and Redux Slice for efficient state management. For database interactions, it utilizes MongoDB in conjunction with GraphQL. The objective is to demonstrate the deployment, scalability, and structure of a complex application in a unified Kubernetes environment.
+This project illustrates my orchestration of a multi-language microservice architecture using Kubernetes with Minikube. It highlights my use of Docker for containerizing each service, incorporating a Next.js frontend with server-side rendering (SSR), Node.js for backend services, and Golang powered by the Gin framework. The project employs a variety of technologies and design patterns including Typescript, the Atomic Design pattern for UI development, and Redux Slice for efficient state management. For database interactions, it utilizes MongoDB in conjunction with GraphQL. The objective is to demonstrate the deployment, scalability, and structure of a complex application in a unified Kubernetes environment.
 
 
 System Archi
