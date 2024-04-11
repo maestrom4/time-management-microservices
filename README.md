@@ -39,7 +39,7 @@ The purpose of this project is to showcase how to deploy a multi-language applic
 - Atomic Pattern
 - Redux Slice Version
 - Golang
-- Tailwind with Styled Components for fast designing and full customization
+- Tailwind combined with Styled Components offers rapid design capabilities and extensive customization options.
 - MongoDB
 - GraphQL for database management with MongoDB
 
