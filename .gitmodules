@@ -13,3 +13,6 @@
 [submodule "time-log-service"]
 	path = time-log-service
 	url = git@github.com:maestrom4/time-log-service.git
+[submodule "client"]
+	path = client
+	url = git@github.com:maestrom4/client.git
