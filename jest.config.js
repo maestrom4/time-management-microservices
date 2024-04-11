@@ -8,5 +8,11 @@ module.exports = {
       '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
     },
     testEnvironment: 'jsdom',
-  };
+    testMatch: [
+      "**/src/**/*.test.tsx",
+      "**/src/**/*.test.ts",
+      // other patterns if needed
+    ],
+    
+};
   
