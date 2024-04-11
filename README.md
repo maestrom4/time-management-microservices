@@ -21,7 +21,7 @@ System Archi
 
 ## Technologies and Design Patterns
 - Typescript
-- Next.js
+- Next.js Server Side Rendering
 - Node.js
 - Microservices
 - Kubernetes
