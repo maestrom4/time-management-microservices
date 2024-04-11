@@ -1,5 +1,8 @@
-Project Name
-This project is a demonstration of running a multi-language application on Kubernetes using Minikube. It includes components built with Docker, Next.js, Node.js, Golang, and the Gin framework.
+# Project Title: Kubernetes Orchestration for a Multi-Language Microservice Application
+
+## Introduction:
+This project illustrates my orchestration of a multi-language microservice architecture using Kubernetes with Minikube. It highlights my use of Docker for containerizing each service, incorporating a Next.js frontend, Node.js for backend services, and Golang powered by the Gin framework. The project employs a variety of technologies and design patterns including Typescript, the Atomic Design pattern for UI development, and Redux Slice for efficient state management. For database interactions, it utilizes MongoDB in conjunction with GraphQL. The objective is to demonstrate the deployment, scalability, and structure of a complex application in a unified Kubernetes environment.
+
 
 System Archi
 
@@ -15,18 +18,6 @@ System Archi
 - [Contributing](#contributing)
 - [License](#license)
 - [Technologies and Design Patterns](#technologies-and-design-patterns)
-
-
-
-## Introduction
-The purpose of this project is to showcase how to deploy a multi-language application on Kubernetes using Minikube. It includes the following components:
-
-- Docker: Containerization for each service.
-- Next.js: Frontend framework built with React.js.
-- Node.js: JavaScript runtime for backend services.
-- Golang: Programming language for backend services.
-- Gin Framework: Web framework for Golang.
-
 
 ## Technologies and Design Patterns
 - Typescript
