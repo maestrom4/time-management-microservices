@@ -9,7 +9,6 @@ System Archi
 
 ![GitHub Logo](https://github.com/maestrom4/Bundy-management-microservice/blob/develop/bundyRevamp.jpg?raw=true)
 
-
 # Table of Contents
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
