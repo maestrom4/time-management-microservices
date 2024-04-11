@@ -1,0 +1,24 @@
+// pages/index.tsx
+import React from 'react';
+import Head from 'next/head';
+// import styles from '@components/'
+import { Container, Main, Footer, Title, Description, Code } from '../styles/Home.styled';
+const Home: React.FC = (): JSX.Element => {
+  return (
+    <Container>
+      <Main>
+        <Title>
+          Welcome to <a href="https://nextjs.org">Next.js!</a>
+        </Title>
+        <Description>
+          Get started by editing <Code>pages/index.tsx</Code>
+        </Description>
+      </Main>
+      <Footer>
+        Powered by <a href="https://nextjs.org">Next.js</a>
+      </Footer>
+    </Container>
+  );
+};
+
+export default Home;
