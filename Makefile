@@ -15,14 +15,14 @@ K8S_NAMESPACE=my-namespace
 .PHONY: build push deploy
 
 build:
-	docker build -t $(API_GATEWAY_IMAGE_NAME) ./api-gateway-service
-	docker build -t $(EMPLOYEE_SERVICE_IMAGE_NAME) ./employee-service
+  docker build -t $(API_GATEWAY_IMAGE_NAME) ./api-gateway-service
+  docker build -t $(EMPLOYEE_SERVICE_IMAGE_NAME) ./employee-service
   docker build -t $(DBMANAGER_SERVICE_IMAGE_NAME) ./db-manager-service
   docker build -t $(FILE_GENERATOR_SERVICE_IMAGE_NAME) ./file-generator-service
   docker build -t $(MONGODB_SERVICE_IMAGE_NAME) ./mongodb
   docker build -t $(PAYSLIP_SERVICE_IMAGE_NAME) ./payslip-service
   docker build -t $(TIME_LOG_SERVICE_IMAGE_NAME) ./time-log-service
-	# Add docker build commands for other services
+
 
 push:
 	docker push $(API_GATEWAY_IMAGE_NAME)
