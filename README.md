@@ -24,7 +24,7 @@ System Archi
 - Node.js
 - Microservices
 - Kubernetes
-- Minikube
+- Minikube (local testing for a single cluster)
 - Docker
 - Atomic Pattern
 - Redux Slice Version
