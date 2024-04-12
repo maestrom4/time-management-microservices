@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: db-manager-service
-        image: db-manager-service-image:latest
+        image: localhost:5000/db-manager-service-image:latest
         ports:
         - containerPort: 8080
