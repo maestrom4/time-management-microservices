@@ -8,7 +8,7 @@ This project showcases an orchestration of a multi-language microservice archite
 System Archi
 
 
-![GitHub Logo](https://github.com/maestrom4/Bundy-management-microservice/blob/develop/bundyRevamp.jpg?raw=true)
+![GitHub Logo](https://github.com/maestrom4/Bundy-management-microservice/blob/develop/bundyRevamp2.jpg?raw=true)
 
 # Table of Contents
 - [Introduction](#introduction)
