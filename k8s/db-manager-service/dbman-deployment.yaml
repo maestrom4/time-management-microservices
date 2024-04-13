@@ -4,7 +4,7 @@ metadata:
   name: db-manager-service
   namespace: development
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: db-manager-service
@@ -15,6 +15,7 @@ spec:
     spec:
       containers:
       - name: db-manager-service
-        image: localhost:5000/db-manager-service-image:latest
+        image: localhost:5000/db-manager:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
