@@ -11,13 +11,13 @@ System Archi
 ![GitHub Logo](https://github.com/maestrom4/Bundy-management-microservice/blob/develop/bundyRevamp2.jpg?raw=true)
 
 # Table of Contents
-- [Introduction](#introduction)
-- [Prerequisites](#prerequisites)
-- [Setup](#setup)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Technologies and Design Patterns](#technologies-and-design-patterns)
+- [Table of Contents](#table-of-contents)
+	- [Technologies and Design Patterns](#technologies-and-design-patterns)
+	- [Prerequisites](#prerequisites)
+	- [Setup](#setup)
+		- [Clone the Repository:](#clone-the-repository)
+		- [Docker Installation:](#docker-installation)
+		- [Kubectl Installation:](#kubectl-installation)
 
 ## Technologies and Design Patterns
 - Typescript
@@ -53,3 +53,34 @@ License
 This project is licensed under the MIT License.
 
 Feel free to customize this README template according to your project's specific requirements and details.
+
+```
+
+### Docker Installation: 
+Docker Engine is an open source containerization technology for building and containerizing your applications. Docker Engine acts as a client-server application with:
+
+  - A server with a long-running daemon process dockerd.
+  - APIs which specify interfaces that programs can use to talk to and instruct the Docker daemon.
+  - A command line interface (CLI) client docker.
+
+The CLI uses Docker APIs to control or interact with the Docker daemon through scripting or direct CLI commands. Many other Docker applications use the underlying API and CLI. The daemon creates and manages Docker objects, such as images, containers, networks, and volumes.
+
+This section describes how to install Docker Engine on Linux, also known as Docker CE. Docker Engine is also available for Windows, macOS, and Linux, through Docker Desktop. For instructions on how to install Docker Desktop, see:
+
+  - [Docker Desktop for Linux](https://docs.docker.com/desktop/install/linux-install/)
+  - [Docker Desktop for Mac (macOS)](https://docs.docker.com/desktop/install/mac-install/)
+  - [Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/)
+
+
+### Kubectl Installation:
+The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters.
+
+You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs. For more information including a complete list of kubectl operations, see the kubectl reference documentation.
+
+kubectl is installable on a variety of Linux platforms, macOS and Windows. Find your preferred operating system below.
+
+  - [Install kubectl on Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+  - [Install kubectl on macOS](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/)
+  - [Install kubectl on Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
+
+
