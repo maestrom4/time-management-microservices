@@ -68,10 +68,19 @@ minikube addons enable metrics-server
 minikube addons enable dashboard
 minikube config set memory 8192
 # On all services!
+minikube start
+minikube addons enable metrics-server
+minikube addons enable dashboard
+minikube config set memory 8192
+# On all services!
+kubectl create -f k8s/dbman-deployment-service/dbman-deployment.yaml
+kubectl create -f k8s/dbman-deployment-service/dbman-service.yaml
+
 kubectl apply -f k8s/dbman-deployment-service/dbman-deployment.yaml
 kubectl apply -f k8s/dbman-deployment-service/dbman-service.yaml
-kubectl get pods
-kubectl get svc
+
+kubectl get pods -n develpment(namespace)
+kubectl get svc -n development(namespace)
 ```
 ### Docker Installation: 
 Docker Engine is an open source containerization technology for building and containerizing your applications. Docker Engine acts as a client-server application with:
