@@ -49,13 +49,30 @@ Before you begin, ensure you have the following installed:
 git clone https://github.com/maestrom4/project
 cd project
 
-License
-This project is licensed under the MIT License.
-
-Feel free to customize this README template according to your project's specific requirements and details.
-
 ```
+## Starting Minikube
 
+To get Minikube up and running, follow these steps closely. Ensure you've completed all the prerequisites before proceeding.
+
+### Step 1: Install Minikube
+
+First, install Minikube on your system. Detailed instructions for various operating systems are available on the Minikube official [installation guide](https://minikube.sigs.k8s.io/docs/start/).
+
+### Step 2: Start Minikube
+
+Once Minikube is installed, you can start it using the following commands:
+
+```bash
+minikube start
+minikube addons enable metrics-server
+minikube addons enable dashboard
+minikube config set memory 8192
+# On all services!
+kubectl apply -f k8s/dbman-deployment-service/dbman-deployment.yaml
+kubectl apply -f k8s/dbman-deployment-service/dbman-service.yaml
+kubectl get pods
+kubectl get svc
+```
 ### Docker Installation: 
 Docker Engine is an open source containerization technology for building and containerizing your applications. Docker Engine acts as a client-server application with:
 
@@ -84,3 +101,7 @@ kubectl is installable on a variety of Linux platforms, macOS and Windows. Find 
   - [Install kubectl on Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
 
 
+License
+This project is licensed under the MIT License.
+
+Feel free to customize this README template according to your project's specific requirements and details.
