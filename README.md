@@ -70,7 +70,7 @@ minikube config set memory 8192
 # On all services!
 minikube start
 minikube addons enable metrics-server
-minikube addons enable dashboard
+minikube addons enable dashboard # To enable kubernetes dashboard
 minikube config set memory 8192
 # On all services!
 kubectl create -f k8s/dbman-deployment-service/dbman-deployment.yaml
@@ -78,6 +78,16 @@ kubectl create -f k8s/dbman-deployment-service/dbman-service.yaml
 
 kubectl apply -f k8s/dbman-deployment-service/dbman-deployment.yaml
 kubectl apply -f k8s/dbman-deployment-service/dbman-service.yaml
+
+kubectl get pods -n develpment(namespace)
+kubectl get svc -n development(namespace)
+
+# Running local image registry
+kubectl create -f k8s/dbman-deployment-service/dbman-deployment.yaml
+kubectl create -f k8s/dbman-deployment-service/dbman-service.yaml
+
+kubectl apply -f k8s/img-registry/img-reg-deployment.yaml
+kubectl apply -f k8s/mg-registry/img-reg-service.yaml
 
 kubectl get pods -n develpment(namespace)
 kubectl get svc -n development(namespace)
