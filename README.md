@@ -91,6 +91,7 @@ kubectl apply -f k8s/mg-registry/img-reg-service.yaml
 
 kubectl get pods -n develpment(namespace)
 kubectl get svc -n development(namespace)
+
 ```
 ### Docker Installation: 
 Docker Engine is an open source containerization technology for building and containerizing your applications. Docker Engine acts as a client-server application with:
