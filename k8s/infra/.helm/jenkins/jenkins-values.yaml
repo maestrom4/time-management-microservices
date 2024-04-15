@@ -1,0 +1,30 @@
+controller:
+  serviceType: NodePort
+  nodePort: 32000 # Optionally specify a node port
+  installPlugins:
+  - kubernetes:latest
+  - workflow-job:latest
+  - workflow-aggregator:latest
+  - credentials-binding:latest
+  - git:latest
+  admin:
+    username: maestrom4
+    password: "123"
+  # Define persistence if you want to keep Jenkins state across restarts
+  persistence:
+    enabled: true
+    size: 8Gi
+
+agent:
+  enabled: true
+
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - usernamePassword:
+          scope: GLOBAL
+          id: "admin-login"
+          username: maestrom4
+          password: "123"
+          description: "Admin credentials for Jenkins"

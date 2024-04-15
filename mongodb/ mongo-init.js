@@ -1,9 +1,12 @@
-db = db.getSiblingDB('mydatabase');
-
 db.createUser({
-  user: 'myUser',
-  pwd: 'myPassword',
-  roles: [{ role: 'readWrite', db: 'bundyDb' }],
+  user: 'myAppUser',
+  pwd: 'myAppPassword',
+  roles: [
+    {
+      role: 'readWrite',
+      db: 'timesheet-mng-db',
+    },
+  ],
 });
 
-db.mycollection.insert({ key: 'value' });
+db.createCollection("mycollection");
