@@ -52,7 +52,6 @@ cd time-management-microservices
 clone submodules 
 git clone git@github.com:maestrom4/api-gateway-service.git
 
-
 git clone git@github.com:maestrom4/auth-service.git
 [auth-service](https://github.com/maestrom4/auth-service)
 git clone git@github.com:maestrom4/client.git
