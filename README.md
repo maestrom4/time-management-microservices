@@ -46,10 +46,23 @@ Before you begin, ensure you have the following installed:
 ## Setup
 ### Clone the Repository:
 ```bash
-git clone https://github.com/maestrom4/project
-cd project
+git clone git@github.com:maestrom4/time-management-microservices.git
+cd time-management-microservices
 
+clone submodules 
+git clone git@github.com:maestrom4/api-gateway-service.git
+
+
+git clone git@github.com:maestrom4/auth-service.git
+[auth-service](https://github.com/maestrom4/auth-service)
+git clone git@github.com:maestrom4/client.git
+git clone git@github.com:maestrom4/db-manager-service.git
+git clone git@github.com:maestrom4/employee-service.git
+git clone git@github.com:maestrom4/time-log-service.git
+git clone git@github.com:maestrom4/file-generator-service.git
 ```
+[api-gateway-service](https://github.com/maestrom4/api-gateway-service/tree/a4dfddb9cada1234418f66b6c20c6291c8311146)
+[auth-service](https://github.com/maestrom4/auth-service)
 
 ## Starting with Docker compose TBH(WIP)
 
