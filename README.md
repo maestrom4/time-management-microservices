@@ -50,6 +50,9 @@ git clone https://github.com/maestrom4/project
 cd project
 
 ```
+
+## Starting with Docker compose TBH(WIP)
+
 ## Starting Minikube
 
 To get Minikube up and running, follow these steps closely. Ensure you've completed all the prerequisites before proceeding.
