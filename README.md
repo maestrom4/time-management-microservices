@@ -46,10 +46,31 @@ Before you begin, ensure you have the following installed:
 ## Setup
 ### Clone the Repository:
 ```bash
-git clone https://github.com/maestrom4/project
-cd project
+git clone git@github.com:maestrom4/time-management-microservices.git
+cd time-management-microservices
 
+clone submodules 
+git clone git@github.com:maestrom4/api-gateway-service.git
+
+git clone git@github.com:maestrom4/auth-service.git
+[auth-service](https://github.com/maestrom4/auth-service)
+git clone git@github.com:maestrom4/client.git
+git clone git@github.com:maestrom4/db-manager-service.git
+git clone git@github.com:maestrom4/employee-service.git
+git clone git@github.com:maestrom4/time-log-service.git
+git clone git@github.com:maestrom4/file-generator-service.git
 ```
+- [api-gateway-service](https://github.com/maestrom4/api-gateway-service)
+- [auth-service](https://github.com/maestrom4/auth-service)
+- [file-generator-service](https://github.com/maestrom4/file-generator-service)
+- [client](https://github.com/maestrom4/client)
+- [payslip-service](https://github.com/maestrom4/payslip-service)
+- [employee-service](https://github.com/maestrom4/employee-service)
+- [time-log-service](https://github.com/maestrom4/time-log-service)
+- [db-manager-service](https://github.com/maestrom4/db-manager-service)
+
+## Starting with Docker compose TBH(WIP)
+
 ## Starting Minikube
 
 To get Minikube up and running, follow these steps closely. Ensure you've completed all the prerequisites before proceeding.
