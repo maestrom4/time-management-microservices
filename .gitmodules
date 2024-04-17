@@ -16,3 +16,9 @@
 [submodule "client"]
 	path = client
 	url = git@github.com:maestrom4/client.git
+[submodule "auth-service"]
+	path = auth-service
+	url = git@github.com:maestrom4/auth-service.git
+[submodule "file-generator-service"]
+	path = file-generator-service
+	url = git@github.com:maestrom4/file-generator-service.git
