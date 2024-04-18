@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: db-manager-service
-        image: localhost:5000/db-manager:latest # Change accordingly depends on your image registry
+        image: localhost:5000/db-manager-service:latest # Change accordingly depends on your image registry
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

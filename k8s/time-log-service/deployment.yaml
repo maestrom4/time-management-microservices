@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: time-log-service
-        image: localhost:5000/time-log-service-image:latest
+        image: localhost:5000/time-log-service:latest
         ports:
         - containerPort: 8080
