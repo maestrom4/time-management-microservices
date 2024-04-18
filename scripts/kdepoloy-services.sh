@@ -91,6 +91,17 @@ done
 
 # After the loop, apply the centralized ingress
 kubectl apply -f k8s/infra/ingress/timemgt-ingress.yaml
+<<<<<<< Updated upstream
 
+=======
+# MongoDb
+docker pull mongo:latest
+docker tag mongo:latest localhost:5000/mongodb:latest
+docker push localhost:5000/mongodb:latest
+
+kubectl apply -f k8s/mongodb/deployment.yaml
+kubectl apply -f k8s/mongodb/service.yaml
+kubectl apply -f k8s/infra/ingress/mongodb-ingress.yaml
+>>>>>>> Stashed changes
 # Check deployed pods
 kubectl get po -n development
