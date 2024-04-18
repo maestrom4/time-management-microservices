@@ -4,7 +4,7 @@ metadata:
   name: employee-service
   namespace: development
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: employee-service
