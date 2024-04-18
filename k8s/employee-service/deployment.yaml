@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: employee-service
-        image: employee-service-image:latest
+        image: localhost:5000/employee-service-image:latest
         ports:
         - containerPort: 8080

@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: file-generator-service
-        image: file-generator-service-image:latest
+        image: localhost:5000/file-generator-service-image:latest
         ports:
         - containerPort: 8080

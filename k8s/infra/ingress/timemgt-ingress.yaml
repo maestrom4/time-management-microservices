@@ -1,0 +1,55 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: timemgt-ingress
+  namespace: development
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+  - host: api.timemgt.com
+    http:
+      paths:
+      - path: /gateway(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: api-gateway-service
+            port:
+              number: 80
+      - path: /db-manager(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: db-manager-service
+            port:
+              number: 80
+      - path: /employee(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: employee-service
+            port:
+              number: 80
+      - path: /file-generator(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: file-generator-service
+            port:
+              number: 80
+      - path: /payslip(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: payslip-service
+            port:
+              number: 80
+      - path: /time-log(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: time-log-service
+            port:
+              number: 80
+      # Additional paths for other services
