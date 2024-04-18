@@ -4,7 +4,7 @@ metadata:
   name: file-generator-service
   namespace: development
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: file-generator-service
