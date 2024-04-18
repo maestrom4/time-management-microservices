@@ -84,35 +84,40 @@ First, install Minikube on your system. Detailed instructions for various operat
 Once Minikube is installed, you can start it using the following commands:
 
 ```bash
-minikube start
-minikube addons enable metrics-server
-minikube addons enable dashboard
-minikube config set memory 8192
-# On all services!
-minikube start
+
+
+# Purge minikube and delete. if you need to reset minikube
+minikube stop
+minikube delete
+docker system prune -a --volumes
+sudo systemctl restart docker
+
+minikube start --insecure-registry="192.168.99.100:5000"
 minikube addons enable metrics-server
 minikube addons enable dashboard # To enable kubernetes dashboard
+minikube addons enable ingress
 minikube config set memory 8192
-# On all services!
-kubectl create -f k8s/dbman-deployment-service/dbman-deployment.yaml
-kubectl create -f k8s/dbman-deployment-service/dbman-service.yaml
+minikube addons enable registry
+minikube dashboard # separate terminal
+k create namespace develoment
+kubectl config set-context --current --namespace=development # Default to development
+#docker rmi $(docker images -q)
 
-kubectl apply -f k8s/dbman-deployment-service/dbman-deployment.yaml
-kubectl apply -f k8s/dbman-deployment-service/dbman-service.yaml
 
-kubectl get pods -n develpment(namespace)
-kubectl get svc -n development(namespace)
+kubectl get pods --namespace kube-system # get registry pod
+kubectl port-forward --namespace kube-system registry-tj549 5000:5000 # on another terminal # Don't get the proxy
 
-# Running local image registry
-kubectl create -f k8s/dbman-deployment-service/dbman-deployment.yaml
-kubectl create -f k8s/dbman-deployment-service/dbman-service.yaml
+# Build docker image in each service
+docker build --no-cache -t api-gateway:latest .
+docker tag api-gateway localhost:5000/api-gateway:latest
+docker push localhost:5000/api-gateway:latest
 
-kubectl apply -f k8s/img-registry/img-reg-deployment.yaml
-kubectl apply -f k8s/mg-registry/img-reg-service.yaml
-
-kubectl get pods -n develpment(namespace)
-kubectl get svc -n development(namespace)
-
+# Deploy k8s per services if with namespace development error do "k create namespace develoment"
+k apply -f k8s/api-gateway-service/deployment.yaml
+k apply -f k8s/api-gateway-service/service.yaml
+k apply -f k8s/infra/ingress/api-gateway-ingress.yaml
+# Check k get po
+Note: k is kubectl write an alias for this if you want.
 
 
 ```
