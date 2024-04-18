@@ -93,6 +93,13 @@ Go to folder scripts and run
   chmod +x kdepoloy-services.sh # make executable
   ./kdepoloy-services.sh
 ```
+Checking the registry
+```bash 
+curl -X GET http://localhost:5000/v2/_catalog
+sample output 
+{"repositories":["api-gateway-service","db-manager-service","employee-service"]}
+
+```
 
 ### Step 2: Start Minikube Manually
 

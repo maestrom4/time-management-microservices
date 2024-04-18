@@ -46,9 +46,13 @@ cd ..
 # Loop through services to build images and deploy services
 for service in "${arrServices[@]}"; do
     # Enter the service directory
+    echo "Changing to service directory for $service..."
     cd "$service" || { echo "Service directory for $service not found"; exit 1; }
-
-    # Build the Docker image
+    
+    echo "Current directory: $(pwd)"
+    echo "Contents of the current directory:"
+    ls -la
+    
     echo "Building Docker image for $service..."
     docker build --no-cache -t "$service":latest .
     if [ $? -ne 0 ]; then

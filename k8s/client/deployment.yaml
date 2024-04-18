@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: employee-service
+  name: client
   namespace: development
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: employee-service
+      app: client
   template:
     metadata:
       labels:
-        app: employee-service
+        app: client
     spec:
       containers:
-      - name: employee-service
-        image: localhost:5000/employee-service:latest
+      - name: client
+        image: localhost:5000/client:latest
         ports:
         - containerPort: 8080
