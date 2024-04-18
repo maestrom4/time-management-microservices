@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: mongo:latest
+        image: localhost:5000/mongodb:latest
         ports:
         - containerPort: 27017
         env:

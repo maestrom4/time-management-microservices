@@ -91,6 +91,9 @@ done
 
 # After the loop, apply the centralized ingress
 kubectl apply -f k8s/infra/ingress/timemgt-ingress.yaml
-
+# MongoDb
+kubectl apply -f k8s/mongodb/deployment.yaml
+kubectl apply -f k8s/mongodb/service.yaml
+kubectl apply -f k8s/infra/ingress/mongodb-ingress.yaml
 # Check deployed pods
 kubectl get po -n development
