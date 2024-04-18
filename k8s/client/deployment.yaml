@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: time-log-service
+  name: client
   namespace: development
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: time-log-service
+      app: client
   template:
     metadata:
       labels:
-        app: time-log-service
+        app: client
     spec:
       containers:
-      - name: time-log-service
-        image: localhost:5000/time-log-service-image:latest
+      - name: client
+        image: localhost:5000/client:latest
         ports:
         - containerPort: 8080

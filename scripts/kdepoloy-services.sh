@@ -1,60 +1,96 @@
 #!/bin/bash
 
-# Define the local registry address
-LOCAL_REGISTRY="10.101.139.176"
+# Define services array
+arrServices=("api-gateway-service" "db-manager-service" "employee-service" "file-generator-service" "payslip-service" "time-log-service" "client" "auth-service")
 
-# Define the base directory for the Kubernetes configurations relative to the script's location
-K8S_DIR="../k8s"
+# Read password from environment variable and restart Docker using it
 
-# Navigate to the script's directory
-cd "$(dirname "$0")"
 
-# Call the script to deploy the img-registry-deployment
-./deploy-img-registry.sh
-# Define the list of other services to process
-SERVICES=("api-gateway-service" "db-manager-service" "employee-service" "file-generator-service" "payslip-service" "time-log-service" "client")
+# Purge minikube and delete (reset minikube)
+minikube stop
+minikube delete
+docker system prune -af --volumes
+set -x  # Enable debug mode
+PASSWORD="$PASSWORD_ENV_VARIABLE_NAME" sudo -S systemctl restart docker
 
-# Loop through the predefined list of services
-for SERVICE_NAME in "${SERVICES[@]}"; do
-  SERVICE_DIR="$K8S_DIR/$SERVICE_NAME"
-  if [ -d "$SERVICE_DIR" ]; then
-    echo "Processing service: $SERVICE_NAME"
+# Start minikube with the desired configuration
+minikube start --insecure-registry="192.168.99.100:5000"
+minikube addons enable metrics-server
+minikube addons enable dashboard
+minikube addons enable ingress
+minikube config set memory 8192
+minikube addons enable registry
 
-    # Check for the Dockerfile in the service directory (relative to the k8s directory)
-    if [ ! -f "../$SERVICE_NAME/Dockerfile" ]; then
-      echo "Dockerfile not found for $SERVICE_NAME. Skipping image build."
-    else
-      # Build the Docker image and tag it
-      echo "Building Docker image for $SERVICE_NAME..."
-      docker build -t $LOCAL_REGISTRY/$SERVICE_NAME:latest ../$SERVICE_NAME
+# # Create and set the namespace
+kubectl create namespace development
+kubectl config set-context --current --namespace=development
 
-      # Check if build was successful
-      if [ $? -eq 0 ]; then
-        # Push the image to the local registry
-        echo "Pushing $SERVICE_NAME image to $LOCAL_REGISTRY..."
-        docker push $LOCAL_REGISTRY/$SERVICE_NAME:latest
+# Get the name of the registry pod, excluding the registry-proxy
+registry_pod=$(kubectl get po -n kube-system | grep "^registry-" | grep -v "proxy" | awk '{print $1}')
 
-        # Roll out the update using the new image
-        echo "Rolling out update for $SERVICE_NAME..."
-        kubectl set image deployment/$SERVICE_NAME $SERVICE_NAME=$LOCAL_REGISTRY/$SERVICE_NAME:latest -n default
-        kubectl rollout restart deployment/$SERVICE_NAME -n default
-      else
-        echo "Build failed for $SERVICE_NAME, not pushing image."
-      fi
+# Check if we got the registry pod name
+if [[ -n "$registry_pod" ]]; then
+    echo "Registry pod is ready: $registry_pod"
+
+    # Start port forwarding in the background
+    kubectl port-forward --namespace kube-system "$registry_pod" 5000:5000 &
+else
+    echo "Registry pod was not found. Exiting..."
+    exit 1
+fi
+
+
+# Start port forwarding in the background
+kubectl port-forward --namespace kube-system "$registry_pod" 5000:5000 &
+cd ..
+# Loop through services to build images and deploy services
+for service in "${arrServices[@]}"; do
+    # Enter the service directory
+    echo "Changing to service directory for $service..."
+    cd "$service" || { echo "Service directory for $service not found"; exit 1; }
+    
+    echo "Current directory: $(pwd)"
+    echo "Contents of the current directory:"
+    ls -la
+    
+    echo "Building Docker image for $service..."
+    docker build --no-cache -t "$service":latest .
+    if [ $? -ne 0 ]; then
+        echo "Docker build failed for $service, exiting..."
+        exit 1
     fi
 
-    # Apply the Kubernetes configurations
-    echo "Applying Kubernetes configurations for $SERVICE_NAME..."
-    kubectl apply -f "$SERVICE_DIR/deployment.yaml"
-    kubectl apply -f "$SERVICE_DIR/service.yaml"
+    # Tag the Docker image
+    echo "Tagging Docker image for $service..."
+    docker tag "$service":latest "localhost:5000/$service:latest"
+    if [ $? -ne 0 ]; then
+        echo "Docker tag failed for $service, exiting..."
+        exit 1
+    fi
 
-    echo "Completed processing $SERVICE_NAME."
-  else
-    echo "Service directory for $SERVICE_NAME does not exist."
-  fi
+    # Push the Docker image to the local registry
+    echo "Pushing Docker image for $service to local registry..."
+    docker push "localhost:5000/$service:latest"
+    if [ $? -ne 0 ]; then
+        echo "Docker push failed for $service, exiting..."
+        exit 1
+    fi
+
+    # Return to the root directory
+    cd ..
+
+    # Apply Kubernetes configurations
+    echo "Applying Kubernetes deployment for $service..."
+    kubectl apply -f k8s/"$service"/deployment.yaml
+    kubectl apply -f k8s/"$service"/service.yaml
+
+    # Small delay to ensure kubectl commands have completed
+    sleep 2
 done
 
-# Navigate back to the original directory
-cd - > /dev/null
 
-echo "All services have been processed."
+# After the loop, apply the centralized ingress
+kubectl apply -f k8s/infra/ingress/timemgt-ingress.yaml
+
+# Check deployed pods
+kubectl get po -n development

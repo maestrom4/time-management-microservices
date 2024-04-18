@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: time-log-service
+  name: auth-service
   namespace: development
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: time-log-service
+      app: auth-service
   template:
     metadata:
       labels:
-        app: time-log-service
+        app: auth-service
     spec:
       containers:
-      - name: time-log-service
-        image: localhost:5000/time-log-service-image:latest
+      - name: auth-service
+        image: localhost:5000/auth-service:latest
         ports:
         - containerPort: 8080

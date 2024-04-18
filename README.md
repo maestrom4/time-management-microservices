@@ -79,7 +79,29 @@ To get Minikube up and running, follow these steps closely. Ensure you've comple
 
 First, install Minikube on your system. Detailed instructions for various operating systems are available on the Minikube official [installation guide](https://minikube.sigs.k8s.io/docs/start/).
 
-### Step 2: Start Minikube
+### Step 2: Start Minikube with a script
+
+```bash 
+  export PASSWORD_ENV_VARIABLE_NAME='testpass'
+  echo echo $PASSWORD_ENV_VARIABLE_NAME
+```
+Go to folder scripts and run 
+```bash 
+  export PASSWORD_ENV_VARIABLE_NAME='testpass'
+  echo echo $PASSWORD_ENV_VARIABLE_NAME
+  # make sure this is executable 
+  chmod +x kdepoloy-services.sh # make executable
+  ./kdepoloy-services.sh
+```
+Checking the registry
+```bash 
+curl -X GET http://localhost:5000/v2/_catalog
+sample output 
+{"repositories":["api-gateway-service","db-manager-service","employee-service"]}
+
+```
+
+### Step 2: Start Minikube Manually
 
 Once Minikube is installed, you can start it using the following commands:
 
