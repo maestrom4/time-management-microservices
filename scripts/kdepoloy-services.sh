@@ -18,7 +18,7 @@ minikube start --insecure-registry="192.168.99.100:5000"
 minikube addons enable metrics-server
 minikube addons enable dashboard
 minikube addons enable ingress
-minikube config set memory 8192
+# minikube config set memory 8192
 minikube addons enable registry
 
 # # Create and set the namespace
