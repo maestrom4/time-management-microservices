@@ -101,6 +101,12 @@ sample output
 minikube dashboard
 kubectl get pods
 ```
+Check the minikube dashboard
+```bash 
+  minikube dashboard
+  kubectl get pods -n development
+```
+![GitHub Logo](https://github.com/maestrom4/Bundy-management-microservice/blob/develop/minikubeDashboard.png?raw=true)
 
 ### Step 2: Start Minikube Manually
 

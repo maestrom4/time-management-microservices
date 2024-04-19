@@ -1,0 +1,107 @@
+version: '3.8'
+
+services:
+  mongodb:
+    build:
+      context: ./mongodb
+      dockerfile: Dockerfile
+    container_name: mongodb
+    hostname: mongodb
+    environment:
+      # Env will be move to secrets config later on.    
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+    volumes:
+      - mongodb-data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - backend
+
+  payslip-service:
+    build: 
+      context: ./payslip-service
+      dockerfile: Dockerfile
+    container_name: payslip-service
+    hostname: payslip-service
+    depends_on:
+      - mongodb
+    ports:
+      - "8081:8080"
+    environment:
+      DATABASE_URI: mongodb://mongoadmin:mongopassword@mongodb:27017/mydatabase
+    networks:
+      - backend
+
+  time-log-service:
+    build: 
+      context: ./time-log-service
+      dockerfile: Dockerfile
+    container_name: time-log-service
+    hostname: time-log-service
+    depends_on:
+      - mongodb
+    ports:
+      - "8082:8080"
+    networks:
+      - backend
+
+  client:
+    build: 
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: client
+    hostname: client
+    ports:
+      - "8083:80"
+    networks:
+      - frontend
+
+  auth-service:
+    build: 
+      context: ./auth-service
+      dockerfile: Dockerfile
+    container_name: auth-service
+    hostname: auth-service
+    ports:
+      - "8084:80"
+    depends_on:
+      - api-gateway-service
+    networks:
+      - backend
+
+  api-gateway-service:
+    build: 
+      context: ./api-gateway-service
+      dockerfile: Dockerfile
+    container_name: api-gateway-service
+    hostname: api-gateway-service
+    ports:
+      - "8085:80"
+    networks:
+      - frontend
+      - backend
+
+  db-manager-service:
+    build: 
+      context: ./db-manager-service
+      dockerfile: Dockerfile
+    container_name: db-manager-service
+    hostname: db-manager-service
+    depends_on:
+      - mongodb
+    ports:
+      - "8086:8080"
+    networks:
+      - backend
+
+networks:
+  backend:
+    name: backend-network
+  frontend:
+    name: frontend-network
+
+volumes:
+  mongodb-data:
+    name: mongodb-data-volume
