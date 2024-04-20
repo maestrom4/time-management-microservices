@@ -69,7 +69,10 @@ git clone git@github.com:maestrom4/file-generator-service.git
 - [time-log-service](https://github.com/maestrom4/time-log-service)
 - [db-manager-service](https://github.com/maestrom4/db-manager-service)
 
-## Starting with Docker compose TBH(WIP)
+## Starting with Docker compose
+```bash 
+docker-compose up --remove-orphans --build
+```
 
 ## Starting Minikube
 
