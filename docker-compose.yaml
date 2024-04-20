@@ -1,80 +1,80 @@
 version: '3.8'
 
 services:
-  # mongodb:
-  #   image: mongo:latest
-  #   container_name: mongodb
-  #   hostname: mongodb
-  #   environment:
-  #     MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
-  #     MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
-  #     MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
-  #   volumes:
-  #     - mongodb-data:/data/db
-  #   networks:
-  #     - backend
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    hostname: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - backend
 
-  # employee-service:
-  #   build:
-  #     context: ./employee-service
-  #   hostname: employee-service
-  #   container_name: employee-service
-  #   depends_on:
-  #     - db-manager-service
-  #   networks:
-  #     - internal
+  employee-service:
+    build:
+      context: ./employee-service
+    hostname: employee-service
+    container_name: employee-service
+    depends_on:
+      - db-manager-service
+    networks:
+      - internal
 
-  # payslip-service:
-  #   build:
-  #     context: ./payslip-service
-  #   hostname: payslip-service
-  #   container_name: payslip-service
-  #   depends_on:
-  #     - db-manager-service
-  #   networks:
-  #     - internal
+  payslip-service:
+    build:
+      context: ./payslip-service
+    hostname: payslip-service
+    container_name: payslip-service
+    depends_on:
+      - db-manager-service
+    networks:
+      - internal
 
-  # time-log-service:
-  #   build:
-  #     context: ./time-log-service
-  #   hostname: time-log-service
-  #   container_name: time-log-service
-  #   depends_on:
-  #     - db-manager-service
-  #   networks:
-  #     - internal
+  time-log-service:
+    build:
+      context: ./time-log-service
+    hostname: time-log-service
+    container_name: time-log-service
+    depends_on:
+      - db-manager-service
+    networks:
+      - internal
 
-  # file-generator-service:
-  #   build:
-  #     context: ./file-generator-service
-  #   hostname: file-generator-service
-  #   container_name: file-generator-service
-  #   depends_on:
-  #     - db-manager-service
-  #   networks:
-  #     - internal
+  file-generator-service:
+    build:
+      context: ./file-generator-service
+    hostname: file-generator-service
+    container_name: file-generator-service
+    depends_on:
+      - db-manager-service
+    networks:
+      - internal
 
-  # auth-service:
-  #   build:
-  #     context: ./auth-service
-  #   hostname: auth-service
-  #   container_name: auth-service
-  #   depends_on:
-  #     - db-manager-service
-  #   networks:
-  #     - internal
+  auth-service:
+    build:
+      context: ./auth-service
+    hostname: auth-service
+    container_name: auth-service
+    depends_on:
+      - db-manager-service
+    networks:
+      - internal
 
-  # client:
-  #   build:
-  #     context: ./client
-  #   hostname: client
-  #   container_name: client
-  #   ports:
-  #     - "3000:3000"
-  #   depends_on:
-  #     - api-gateway-service
-  #   networks:
-  #     - frontend
+  client:
+    build:
+      context: ./client
+    hostname: client
+    container_name: client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api-gateway-service
+    networks:
+      - frontend
   api-gateway-service:
     build:
       context: ./api-gateway-service
