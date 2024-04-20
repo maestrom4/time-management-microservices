@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  mongodb:
+    build: 
+      context: ./mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: mongopassword
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+
+  payslip-service:
+    build: 
+      context: ./payslip-service
+    ports:
+      - "8081:8080"
+
+  time-log-service:
+    build: 
+      context: ./time-log-service
+    ports:
+      - "8082:8080"
+
+  client:
+    build: 
+      context: ./client
+    ports:
+      - "8083:80"
+
+  auth-service:
+    build: 
+      context: ./auth-service
+    ports:
+      - "8084:80"
+
+  api-gateway-service:
+    build: 
+      context: ./api-gateway-service
+    ports:
+      - "8085:80"
+
+  db-manager-service:
+    build: 
+      context: ./db-manager-service
+    ports:
+      - "8086:8080"
+
+volumes:
+  mongodb-data:

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define services array
-arrServices=("api-gateway-service" "db-manager-service" "employee-service" "file-generator-service" "payslip-service" "time-log-service" "client" "auth-service")
+arrServices=("api-gateway-service" "db-manager-service" "employee-service" "file-generator-service" "payslip-service" "time-log-service" "client" "auth-service" "mongodb")
 
 # Read password from environment variable and restart Docker using it
 
@@ -83,6 +83,7 @@ for service in "${arrServices[@]}"; do
     echo "Applying Kubernetes deployment for $service..."
     kubectl apply -f k8s/"$service"/deployment.yaml
     kubectl apply -f k8s/"$service"/service.yaml
+    kubectl apply -f k8s/configmaps/"$service"-configmap.yaml
 
     # Small delay to ensure kubectl commands have completed
     sleep 2
@@ -91,17 +92,16 @@ done
 
 # After the loop, apply the centralized ingress
 kubectl apply -f k8s/infra/ingress/timemgt-ingress.yaml
-<<<<<<< Updated upstream
-
-=======
 # MongoDb
 docker pull mongo:latest
 docker tag mongo:latest localhost:5000/mongodb:latest
 docker push localhost:5000/mongodb:latest
+kubectl apply -f k8s/configmaps/mongodb-configmap.yaml
+kubectl apply -f k8s/configmaps/mongodb-secret.yaml
 
 kubectl apply -f k8s/mongodb/deployment.yaml
 kubectl apply -f k8s/mongodb/service.yaml
 kubectl apply -f k8s/infra/ingress/mongodb-ingress.yaml
->>>>>>> Stashed changes
+kubectl port-forward svc/mongodb 27017:27017 -n development &
 # Check deployed pods
 kubectl get po -n development
