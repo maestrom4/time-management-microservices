@@ -69,8 +69,11 @@ git clone git@github.com:maestrom4/file-generator-service.git
 - [time-log-service](https://github.com/maestrom4/time-log-service)
 - [db-manager-service](https://github.com/maestrom4/db-manager-service)
 
-## Starting with Docker compose TBH(WIP)
-
+## Starting with Docker compose 
+```bash 
+# cd to root directly
+docker-compose up --remove-orphans
+```
 ## Starting Minikube
 
 To get Minikube up and running, follow these steps closely. Ensure you've completed all the prerequisites before proceeding.
