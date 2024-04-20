@@ -98,8 +98,15 @@ Checking the registry
 curl -X GET http://localhost:5000/v2/_catalog
 sample output 
 {"repositories":["api-gateway-service","db-manager-service","employee-service"]}
-
+minikube dashboard
+kubectl get pods
 ```
+Check the minikube dashboard
+```bash 
+  minikube dashboard
+  kubectl get pods -n development
+```
+![GitHub Logo](https://github.com/maestrom4/Bundy-management-microservice/blob/develop/minikubeDashboard.png?raw=true)
 
 ### Step 2: Start Minikube Manually
 
@@ -121,7 +128,7 @@ minikube addons enable ingress
 minikube config set memory 8192
 minikube addons enable registry
 minikube dashboard # separate terminal
-k create namespace develoment
+kubectl create namespace develoment
 kubectl config set-context --current --namespace=development # Default to development
 #docker rmi $(docker images -q)
 
@@ -135,9 +142,9 @@ docker tag api-gateway localhost:5000/api-gateway:latest
 docker push localhost:5000/api-gateway:latest
 
 # Deploy k8s per services if with namespace development error do "k create namespace develoment"
-k apply -f k8s/api-gateway-service/deployment.yaml
-k apply -f k8s/api-gateway-service/service.yaml
-k apply -f k8s/infra/ingress/api-gateway-ingress.yaml
+kubectl apply -f k8s/api-gateway-service/deployment.yaml
+kubectl apply -f k8s/api-gateway-service/service.yaml
+kubectl apply -f k8s/infra/ingress/api-gateway-ingress.yaml
 # Check k get po
 Note: k is kubectl write an alias for this if you want.
 
