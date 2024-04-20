@@ -1,79 +1,87 @@
 version: '3.8'
 
 services:
-  mongodb:
-    image: mongo:latest
-    container_name: mongodb
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
-      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
-    volumes:
-      - mongodb-data:/data/db
-    networks:
-      - backend
+  # mongodb:
+  #   image: mongo:latest
+  #   container_name: mongodb
+  #   hostname: mongodb
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+  #     MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+  #     MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+  #   volumes:
+  #     - mongodb-data:/data/db
+  #   networks:
+  #     - backend
 
-  db-manager-service:
-    build:
-      context: ./db-manager-service
-    container_name: db-manager-service
-    environment:
-      MONGO_URI: "mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongodb:27017/${MONGO_INITDB_DATABASE}"
-    depends_on:
-      - mongodb
-    networks:
-      - backend
-      - internal
+  # employee-service:
+  #   build:
+  #     context: ./employee-service
+  #   hostname: employee-service
+  #   container_name: employee-service
+  #   depends_on:
+  #     - db-manager-service
+  #   networks:
+  #     - internal
 
-  employee-service:
-    build:
-      context: ./employee-service
-    container_name: employee-service
-    depends_on:
-      - db-manager-service
-    networks:
-      - internal
+  # payslip-service:
+  #   build:
+  #     context: ./payslip-service
+  #   hostname: payslip-service
+  #   container_name: payslip-service
+  #   depends_on:
+  #     - db-manager-service
+  #   networks:
+  #     - internal
 
-  payslip-service:
-    build:
-      context: ./payslip-service
-    container_name: payslip-service
-    depends_on:
-      - db-manager-service
-    networks:
-      - internal
+  # time-log-service:
+  #   build:
+  #     context: ./time-log-service
+  #   hostname: time-log-service
+  #   container_name: time-log-service
+  #   depends_on:
+  #     - db-manager-service
+  #   networks:
+  #     - internal
 
-  time-log-service:
-    build:
-      context: ./time-log-service
-    container_name: time-log-service
-    depends_on:
-      - db-manager-service
-    networks:
-      - internal
+  # file-generator-service:
+  #   build:
+  #     context: ./file-generator-service
+  #   hostname: file-generator-service
+  #   container_name: file-generator-service
+  #   depends_on:
+  #     - db-manager-service
+  #   networks:
+  #     - internal
 
-  file-generator-service:
-    build:
-      context: ./file-generator-service
-    container_name: file-generator-service
-    depends_on:
-      - db-manager-service
-    networks:
-      - internal
+  # auth-service:
+  #   build:
+  #     context: ./auth-service
+  #   hostname: auth-service
+  #   container_name: auth-service
+  #   depends_on:
+  #     - db-manager-service
+  #   networks:
+  #     - internal
 
-  auth-service:
-    build:
-      context: ./auth-service
-    container_name: auth-service
-    depends_on:
-      - api-gateway-service
-    networks:
-      - internal
-
+  # client:
+  #   build:
+  #     context: ./client
+  #   hostname: client
+  #   container_name: client
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - api-gateway-service
+  #   networks:
+  #     - frontend
   api-gateway-service:
     build:
       context: ./api-gateway-service
+    hostname: api-gateway-service
     container_name: api-gateway-service
+    ports:
+      - "8080:8080"
     depends_on:
       - employee-service
       - payslip-service
@@ -84,14 +92,33 @@ services:
       - frontend
       - internal
 
-  client:
+  db-manager-service:
     build:
-      context: ./client
-    container_name: client
+      context: ./db-manager-service
+    hostname: db-manager-service
+    container_name: db-manager-service
+    environment:
+      MONGO_URI: "mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongodb:27017/${MONGO_INITDB_DATABASE}"
     depends_on:
-      - api-gateway-service
+      - mongodb
+    ports:
+    - "8082:8080"
     networks:
-      - frontend
+      - backend
+      - internal
+  
+  graphql-playground:
+    build:
+      context: ./go-graphql-playground
+    container_name: graphql-playground
+    ports:
+      - "8081:8080"
+    environment:
+      - GRAPHQL_ENDPOINT=http://localhost:8082/graphql
+    depends_on:
+      - db-manager-service
+    networks:
+      - internal
 
 networks:
   backend:
