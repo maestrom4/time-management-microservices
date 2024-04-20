@@ -2,51 +2,89 @@ version: '3.8'
 
 services:
   mongodb:
-    build: 
-      context: ./mongodb
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: mongoadmin
-      MONGO_INITDB_ROOT_PASSWORD: mongopassword
-    ports:
-      - "27017:27017"
+    image: mongo:latest
+    container_name: mongodb
+    networks:
+      - backend
     volumes:
       - mongodb-data:/data/db
 
+  db-manager-service:
+    build:
+      context: ./db-manager-service
+      dockerfile: Dockerfile
+    container_name: db-manager-service
+    networks:
+      - backend
+      - internal
+    environment:
+      MONGO_URI: "mongodb://mongodb:27017"
+
+  employee-service:
+    build:
+      context: ./employee-service
+      dockerfile: Dockerfile
+    container_name: employee-service
+    networks:
+      - internal
+
   payslip-service:
-    build: 
+    build:
       context: ./payslip-service
-    ports:
-      - "8081:8080"
+      dockerfile: Dockerfile
+    container_name: payslip-service
+    networks:
+      - internal
 
   time-log-service:
-    build: 
+    build:
       context: ./time-log-service
-    ports:
-      - "8082:8080"
+      dockerfile: Dockerfile
+    container_name: time-log-service
+    networks:
+      - internal
 
-  client:
-    build: 
-      context: ./client
-    ports:
-      - "8083:80"
+  file-generator-service:
+    build:
+      context: ./file-generator-service
+      dockerfile: Dockerfile
+    container_name: file-generator-service
+    networks:
+      - internal
 
   auth-service:
-    build: 
+    build:
       context: ./auth-service
-    ports:
-      - "8084:80"
+      dockerfile: Dockerfile
+    container_name: auth-service
+    networks:
+      - internal
 
   api-gateway-service:
-    build: 
+    build:
       context: ./api-gateway-service
-    ports:
-      - "8085:80"
+      dockerfile: Dockerfile
+    container_name: api-gateway-service
+    networks:
+      - frontend
+      - internal
 
-  db-manager-service:
-    build: 
-      context: ./db-manager-service
-    ports:
-      - "8086:8080"
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: client
+    networks:
+      - frontend
+
+networks:
+  backend:
+    name: backend-network
+  internal:
+    name: internal-network
+  frontend:
+    name: frontend-network
 
 volumes:
   mongodb-data:
+    name: mongodb-data-volume
