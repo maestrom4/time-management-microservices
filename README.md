@@ -70,8 +70,10 @@ git clone git@github.com:maestrom4/file-generator-service.git
 - [db-manager-service](https://github.com/maestrom4/db-manager-service)
 
 ## Starting with Docker compose
-```bash 
-docker-compose up --remove-orphans --build
+```bash
+# Clear docker if with errors
+docker docker system prune -a
+step 1: docker-compose up --remove-orphans --build
 ```
 
 ## Starting Minikube
