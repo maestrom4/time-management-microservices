@@ -71,9 +71,12 @@ git clone git@github.com:maestrom4/file-generator-service.git
 
 ## Starting with Docker compose
 ```bash
+docker-compose down
+docker-compose up --build
 # Clear docker if with errors
 docker docker system prune -a
-step 1: docker-compose up --remove-orphans --build
+docker volume prune
+docker network prune
 ```
 
 ## Starting Minikube
