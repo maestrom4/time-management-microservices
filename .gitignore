@@ -23,3 +23,6 @@
 /node_modules/
 /client/node_modules/
 /client/next/
+.env
+
+/mongodb/init-mongo.js
