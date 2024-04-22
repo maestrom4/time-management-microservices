@@ -185,6 +185,32 @@ kubectl is installable on a variety of Linux platforms, macOS and Windows. Find 
   - [Install kubectl on macOS](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/)
   - [Install kubectl on Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
 
+```bash
+Graphql flow
+
+Service/pkg ---> | Gin Router (routes.go) 
+                        |
+          Middleware (Logger, etc.) 
+                        |
+          GraphQL Handler (resolvers.go)
+                        |
+                Resolver Functions
+                        |
+           Service Layer (user.go, etc.)
+                        |
+         MongoDB Interaction (mongoCfg.go)
+                        |
+          Service Layer (user.go, etc.)
+                        |
+               Resolver Functions
+                        V
+Service/pkg <--- GraphQL Handler (resolvers.go)
+
+Note:
+PKG folder if package is aimed at providing a reusable, isolated layer of data access. It deals purely with CRUD operations and interacts directly with MongoDB without embedding any business logic.
+Service folder if package is intended for application-specific business logic. It includes handling data operations that are intertwined with other business rules and validations.
+```
+
 
 License
 This project is licensed under the MIT License.
