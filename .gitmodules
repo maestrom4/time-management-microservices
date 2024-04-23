@@ -1,9 +1,6 @@
 [submodule "api-gateway-service"]
 	path = api-gateway-service
 	url = git@github.com:maestrom4/api-gateway-service.git
-[submodule "db-manager-service"]
-	path = db-manager-service
-	url = git@github.com:maestrom4/db-manager-service.git
 [submodule "employee-service"]
 	path = employee-service
 	url = git@github.com:maestrom4/employee-service.git

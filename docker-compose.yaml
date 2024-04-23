@@ -8,7 +8,7 @@ services:
   #   hostname: employee-service
   #   container_name: employee-service
   #   depends_on:
-  #     - db-manager-service
+  #     - mongodb
   #   networks:
   #     - internal
 
@@ -18,7 +18,7 @@ services:
   #   hostname: payslip-service
   #   container_name: payslip-service
   #   depends_on:
-  #     - db-manager-service
+  #     - mongodb
   #   networks:
   #     - internal
 
@@ -28,7 +28,7 @@ services:
   #   hostname: time-log-service
   #   container_name: time-log-service
   #   depends_on:
-  #     - db-manager-service
+  #     - mongodb
   #   networks:
   #     - internal
 
@@ -38,19 +38,43 @@ services:
   #   hostname: file-generator-service
   #   container_name: file-generator-service
   #   depends_on:
-  #     - db-manager-service
+  #     - mongodb
   #   networks:
   #     - internal
-
-  # auth-service:
+  # db-manager-service:
   #   build:
-  #     context: ./auth-service
-  #   hostname: auth-service
-  #   container_name: auth-service
+  #     context: ./db-manager-service
+  #   container_name: db-manager-service
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+  #     MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+  #     MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+  #     MONGO_INITDB_COLLECTION: ${MONGO_INITDB_COLLECTION}
+  #     MONGO_URI: "mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongodb:27017/admin"
   #   depends_on:
-  #     - db-manager-service
+  #     - mongodb
+  #   ports:
+  #     - "8082:8080"
   #   networks:
-  #     - internal
+  #     - backend
+
+  auth-service:
+    build:
+      context: ./auth-service
+    hostname: auth-service
+    container_name: auth-service
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+      MONGO_INITDB_COLLECTION: ${MONGO_INITDB_COLLECTION}
+      MONGO_URI: "mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongodb:27017/admin"
+    ports:
+      - "8085:8080"
+    depends_on:
+       - mongodb
+    networks:
+      - backend
 
   # client:
   #   build:
@@ -94,22 +118,6 @@ services:
     networks:
       - backend
 
-  db-manager-service:
-    build:
-      context: ./db-manager-service
-    container_name: db-manager-service
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
-      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
-      MONGO_INITDB_COLLECTION: ${MONGO_INITDB_COLLECTION}
-      MONGO_URI: "mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongodb:27017/admin"
-    depends_on:
-      - mongodb
-    ports:
-      - "8082:8080"
-    networks:
-      - backend
   
   # graphql-playground:
   #   build:

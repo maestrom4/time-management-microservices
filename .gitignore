@@ -26,3 +26,4 @@
 .env
 
 /mongodb/init-mongo.js
+/db-manager-service
