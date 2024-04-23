@@ -55,19 +55,18 @@ git clone git@github.com:maestrom4/api-gateway-service.git
 git clone git@github.com:maestrom4/auth-service.git
 [auth-service](https://github.com/maestrom4/auth-service)
 git clone git@github.com:maestrom4/client.git
-git clone git@github.com:maestrom4/db-manager-service.git
 git clone git@github.com:maestrom4/employee-service.git
 git clone git@github.com:maestrom4/time-log-service.git
 git clone git@github.com:maestrom4/file-generator-service.git
 ```
-- [api-gateway-service](https://github.com/maestrom4/api-gateway-service)
-- [auth-service](https://github.com/maestrom4/auth-service)
-- [file-generator-service](https://github.com/maestrom4/file-generator-service)
-- [client](https://github.com/maestrom4/client)
-- [payslip-service](https://github.com/maestrom4/payslip-service)
-- [employee-service](https://github.com/maestrom4/employee-service)
-- [time-log-service](https://github.com/maestrom4/time-log-service)
-- [db-manager-service](https://github.com/maestrom4/db-manager-service)
+- [api-gateway-service](https://github.com/maestrom4/api-gateway-service) [5%]
+- [auth-service](https://github.com/maestrom4/auth-service) [20%] WIP
+- [file-generator-service](https://github.com/maestrom4/file-generator-service) [5%]
+- [client](https://github.com/maestrom4/client) [5%]
+- [payslip-service](https://github.com/maestrom4/payslip-service) [5%]
+- [employee-service](https://github.com/maestrom4/employee-service) [5%]
+- [time-log-service](https://github.com/maestrom4/time-log-service) [5%]
+
 
 ## Starting with Docker compose
 ```bash
