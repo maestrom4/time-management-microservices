@@ -92,7 +92,8 @@ MONGO_INITDB_ROOT_PASSWORD=mongopassword
 MONGO_INITDB_DATABASE=time-mngt-app
 MONGO_INITDB_COLLECTION=users
 MONGO_URI=mongodb://mongoadmin:mongopassword@mongodb:27017/admin
-SALT_PASS_KEY=test_123_qwerty_po
+SALT_PASS_KEY=your_secret_key_here
+JWT_SECRET_KEY=sakretpo2
 ```
 
 ```bash
