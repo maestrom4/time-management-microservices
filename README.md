@@ -86,7 +86,11 @@ git clone git@github.com:maestrom4/file-generator-service.git
 ## Starting with Docker compose
 **ENV for Docker Compose**
 ```bash
-# Create a .env with the following values this will be transfer in a kubectl environment this will be in a different location or vault.
+# .env File for Kubernetes Deployment
+
+# Place this file in a secure location or vault for use with Kubernetes.
+
+# Environment variables for application secrets and configurations
 SALT_PASS_KEY=your_secret_key_here
 JWT_SECRET_KEY=sakretpo2
 MONGO_ROOT_USERNAME=mongoadmin
