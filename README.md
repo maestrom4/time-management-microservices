@@ -14,7 +14,7 @@ System Archi
 We are making steady progress across the different services of our project. Here's the current status of each component:  
 
 - **API Gateway Service**: 5% complete. This service is in the initial stages of development.  
-- **Auth Service**: 20% complete. This component is actively under development and currently in a Work in Progress (WIP) state.  
+- **Auth Service**: 50% complete. This component is actively under development and currently in a Work in Progress (WIP) state.  
 - **File Generator Service**: 5% complete. Initial development has started.  
 - **Client Interface**: 5% complete. Early development phase.  
 - **Payslip Service**: 5% complete. We have begun laying the groundwork for this service.  
@@ -74,7 +74,7 @@ git clone git@github.com:maestrom4/time-log-service.git
 git clone git@github.com:maestrom4/file-generator-service.git
 ```
 - [api-gateway-service](https://github.com/maestrom4/api-gateway-service) [5%]
-- [auth-service](https://github.com/maestrom4/auth-service) [20%] WIP
+- [auth-service](https://github.com/maestrom4/auth-service) [50%] WIP
 - [file-generator-service](https://github.com/maestrom4/file-generator-service) [5%]
 - [client](https://github.com/maestrom4/client) [5%]
 - [payslip-service](https://github.com/maestrom4/payslip-service) [5%]

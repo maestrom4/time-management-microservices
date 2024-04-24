@@ -64,11 +64,13 @@ services:
     hostname: auth-service
     container_name: auth-service
     environment:
+      SALT_PASS_KEY: ${SALT_PASS_KEY}
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
       MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
       MONGO_INITDB_COLLECTION: ${MONGO_INITDB_COLLECTION}
       MONGO_URI: "mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongodb:27017/admin"
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
     ports:
       - "8085:8080"
     depends_on:
