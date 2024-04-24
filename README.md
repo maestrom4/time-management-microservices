@@ -10,6 +10,18 @@ System Archi
 
 ![GitHub Logo](https://github.com/maestrom4/Bundy-management-microservice/blob/develop/bundyRevamp3.jpg?raw=true)
 
+Project Status Update
+We are making steady progress across the different services of our project. Here's the current status of each component:
+
+API Gateway Service: 5% complete. This service is in the initial stages of development.
+Auth Service: 20% complete. This component is actively under development and currently in a Work in Progress (WIP) state.
+File Generator Service: 5% complete. Initial development has started.
+Client Interface: 5% complete. Early development phase.
+Payslip Service: 5% complete. We have begun laying the groundwork for this service.
+Employee Service: 5% complete. Initial development has been kicked off.
+Time Log Service: 5% complete. Development has just started.
+Currently, the Auth Service is the only component designated as "Work in Progress" indicating active and priority development. We are focused on advancing its features to meet upcoming milestones.
+
 # Table of Contents
 - [Table of Contents](#table-of-contents)
 	- [Technologies and Design Patterns](#technologies-and-design-patterns)
