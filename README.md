@@ -70,7 +70,7 @@ git clone git@github.com:maestrom4/file-generator-service.git
 
 
 ## Starting with Docker compose
-### ENV for Docker Compose
+**ENV for Docker Compose**
 ```bash
 # Create a .env with the following values this will be transfer in a kubectl environment this will be in a different location or vault.
 MONGO_INITDB_ROOT_USERNAME=mongoadmin
