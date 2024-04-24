@@ -68,7 +68,16 @@ git clone git@github.com:maestrom4/file-generator-service.git
 - [time-log-service](https://github.com/maestrom4/time-log-service) [5%]
 
 
+
 ## Starting with Docker compose
+### Create a .env with the following values this will be transfer in a kubectl environment this will be in a different location or vault.
+MONGO_INITDB_ROOT_USERNAME=mongoadmin
+MONGO_INITDB_ROOT_PASSWORD=mongopassword
+MONGO_INITDB_DATABASE=time-mngt-app
+MONGO_INITDB_COLLECTION=users
+MONGO_URI=mongodb://mongoadmin:mongopassword@mongodb:27017/admin
+SALT_PASS_KEY=test_123_qwerty_po
+
 ```bash
 docker-compose down
 docker-compose up --build
