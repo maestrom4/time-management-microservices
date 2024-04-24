@@ -8,7 +8,7 @@ This project exemplifies the orchestration of a multi-language microservice arch
 System Archi
 
 
-![GitHub Logo](https://github.com/maestrom4/Bundy-management-microservice/blob/develop/bundyRevamp3.jpg?raw=true)
+![GitHub Logo](https://github.com/maestrom4/Bundy-management-microservice/blob/develop/bundyRevamp4.jpg?raw=true)
 
 ### Project Status Update  
 We are making steady progress across the different services of our project. Here's the current status of each component:  
@@ -87,13 +87,30 @@ git clone git@github.com:maestrom4/file-generator-service.git
 **ENV for Docker Compose**
 ```bash
 # Create a .env with the following values this will be transfer in a kubectl environment this will be in a different location or vault.
-MONGO_INITDB_ROOT_USERNAME=mongoadmin
-MONGO_INITDB_ROOT_PASSWORD=mongopassword
-MONGO_INITDB_DATABASE=time-mngt-app
-MONGO_INITDB_COLLECTION=users
-MONGO_URI=mongodb://mongoadmin:mongopassword@mongodb:27017/admin
 SALT_PASS_KEY=your_secret_key_here
 JWT_SECRET_KEY=sakretpo2
+MONGO_ROOT_USERNAME=mongoadmin
+MONGO_ROOT_PASSWORD=mongopassword
+
+MONGO_USERS_COLLECTION=users
+MONGO_EMP_COLLECTION=employee
+MONGO_PAYSLIP_COLLECTION=payslip
+MONGO_TIMELOG_COLLECTION=timelog
+
+MONGO_USERS_DATABASE=dbUsers
+MONGO_EMP_DATABASE=dbEmployee
+MONGO_PAYSLIP_DATABASE=dbpayslip
+MONGO_TIMELOG_DATABASE=dbTimelog
+
+MONGO_EMP_URI=mongodb://mongoadmin:mongopassword@empdb:27017/admin
+MONGO_PAYSLIP_URI=mongodb://mongoadmin:mongopassword@payslipdb:27017/admin
+MONGO_TIMELOG_URI=mongodb://mongoadmin:mongopassword@timelogdb:27017/admin
+MONGO_USERS_URI=mongodb://mongoadmin:mongopassword@authdb:27017/admin
+
+MONGO_EMP_PORT=27018
+MONGO_PAYSLIP_PORT=27019
+MONGO_TIMELOG_PORT=27020
+MONGO_USERS_PORT=27021
 ```
 
 ```bash
