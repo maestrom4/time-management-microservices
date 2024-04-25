@@ -1,9 +1,10 @@
 Kubernetes Orchestration for a Multi-Language Microservice Application
 
 ![NPM Version](https://img.shields.io/npm/v/npm)
-![License](https://img.shields.io/github/license/maestrom4/time-management-microservices)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![GitHub Contributions](https://img.shields.io/github/contributors/maestrom4/time-management-microservices)
 ![GitHub Stars](https://img.shields.io/github/stars/maestrom4/time-management-microservices)
+
 
 ## Introduction:
 
@@ -17,6 +18,13 @@ System Archi
 
 ### Project Status Update  
 We are making steady progress across the different services of our project. Here's the current status of each component:  
+![API Gateway Service](https://img.shields.io/badge/API%20Gateway-5%25-blue)
+![Auth Service](https://img.shields.io/badge/Auth%20Service-50%25-blue)
+![File Generator Service](https://img.shields.io/badge/File%20Generator-5%25-blue)
+![Client](https://img.shields.io/badge/Client-5%25-blue)
+![Payslip Service](https://img.shields.io/badge/Payslip%20Service-5%25-blue)
+![Employee Service](https://img.shields.io/badge/Employee%20Service-5%25-blue)
+![Time-log Service](https://img.shields.io/badge/Time--log%20Service-5%25-blue)
 
 - **API Gateway Service**: 5% complete. This service is in the initial stages of development.  
 - **Auth Service**: 50% complete. This component is actively under development and currently in a Work in Progress (WIP) state.  
