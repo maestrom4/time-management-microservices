@@ -86,7 +86,7 @@ git clone git@github.com:maestrom4/file-generator-service.git
 ## Starting with Docker compose
 **ENV for Docker Compose**
 ```bash
-# .env File for Kubernetes Deployment
+# .env File for Docker compose variables can be transfered to Kubernetes Deployment also.
 
 # Place this file in a secure location or vault for use with Kubernetes.
 
