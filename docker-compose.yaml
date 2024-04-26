@@ -68,8 +68,9 @@ services:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
       MONGO_INITDB_DATABASE: ${MONGO_USERS_DATABASE}
-      MONGO_INITDB_COLLECTION: ${MONGO_USERS_DATABASE}
+      MONGO_INITDB_COLLECTION: ${MONGO_USERS_COLLECTION}
       MONGO_URI: ${MONGO_USERS_URI}
+      LOG_LEVEL: ${LOG_LEVEL}
       # MONGO_URI: "mongodb://${MONGO_ROOT_USERNAME}:${MONGO_ROOT_PASSWORD}@mongodb:27017/admin"
     ports:
       - "8085:8080"
@@ -91,49 +92,49 @@ services:
 
     networks:
       - backend
-  empdb:
-    image: mongo:latest
-    container_name: empdb
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
-      MONGO_INITDB_DATABASE: ${MONGO_EMP_DATABASE}
-    ports:
-      - "${MONGO_EMP_PORT}:27017"
-    volumes:
-      - empdb-data:/data/db
+  # empdb:
+  #   image: mongo:latest
+  #   container_name: empdb
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
+  #     MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+  #     MONGO_INITDB_DATABASE: ${MONGO_EMP_DATABASE}
+  #   ports:
+  #     - "${MONGO_EMP_PORT}:27017"
+  #   volumes:
+  #     - empdb-data:/data/db
 
-    networks:
-      - backend
+  #   networks:
+  #     - backend
 
-  payslipdb:
-    image: mongo:latest
-    container_name: payslipdb
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
-      MONGO_INITDB_DATABASE: ${MONGO_PAYSLIP_DATABASE}
-    ports:
-      - "${MONGO_PAYSLIP_PORT}:27017"
-    volumes:
-      - payslipdb-data:/data/db
+  # payslipdb:
+  #   image: mongo:latest
+  #   container_name: payslipdb
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
+  #     MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+  #     MONGO_INITDB_DATABASE: ${MONGO_PAYSLIP_DATABASE}
+  #   ports:
+  #     - "${MONGO_PAYSLIP_PORT}:27017"
+  #   volumes:
+  #     - payslipdb-data:/data/db
 
-    networks:
-      - backend
-  timelogdb:
-    image: mongo:latest
-    container_name: timelogdb
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
-      MONGO_INITDB_DATABASE: ${MONGO_TIMELOG_DATABASE}
-    ports:
-      - "${MONGO_TIMELOG_PORT}:27017"
-    volumes:
-      - timelogdb-data:/data/db
+  #   networks:
+  #     - backend
+  # timelogdb:
+  #   image: mongo:latest
+  #   container_name: timelogdb
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
+  #     MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+  #     MONGO_INITDB_DATABASE: ${MONGO_TIMELOG_DATABASE}
+  #   ports:
+  #     - "${MONGO_TIMELOG_PORT}:27017"
+  #   volumes:
+  #     - timelogdb-data:/data/db
 
-    networks:
-      - backend
+  #   networks:
+  #     - backend
 
   # client:
   #   build:
