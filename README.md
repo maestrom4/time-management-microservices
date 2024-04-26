@@ -1,4 +1,3 @@
-Kubernetes Orchestration for a Multi-Language Microservice Application
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![GitHub Contributions](https://img.shields.io/github/contributors/maestrom4/time-management-microservices)
