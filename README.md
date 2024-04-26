@@ -105,6 +105,8 @@ git clone git@github.com:maestrom4/file-generator-service.git
 # Environment variables for application secrets and configurations
 
 # This will be on a different yaml file in a live environment
+
+# This will be on a different yaml file in a live environment
 SALT_PASS_KEY=your_secret_key_here
 JWT_SECRET_KEY=sakretpo2
 MONGO_ROOT_USERNAME=mongoadmin
@@ -115,10 +117,10 @@ MONGO_EMP_COLLECTION=employee
 MONGO_PAYSLIP_COLLECTION=payslip
 MONGO_TIMELOG_COLLECTION=timelog
 
-MONGO_USERS_DATABASE=dbUsers
-MONGO_EMP_DATABASE=dbEmployee
-MONGO_PAYSLIP_DATABASE=dbpayslip
-MONGO_TIMELOG_DATABASE=dbTimelog
+MONGO_USERS_DATABASE=db_users
+MONGO_EMP_DATABASE=db_employee
+MONGO_PAYSLIP_DATABASE=db_payslip
+MONGO_TIMELOG_DATABASE=d_tbimelog
 
 MONGO_EMP_URI=mongodb://mongoadmin:mongopassword@empdb:27017/admin
 MONGO_PAYSLIP_URI=mongodb://mongoadmin:mongopassword@payslipdb:27017/admin
@@ -132,6 +134,7 @@ MONGO_USERS_PORT=27021
 
 # For mongo compass access localhost instead of hostname
 # mongodb://mongoadmin:mongopassword@localhost:27021/admin
+
 ```
 
 ```bash
