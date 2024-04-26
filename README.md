@@ -103,6 +103,8 @@ git clone git@github.com:maestrom4/file-generator-service.git
 # Place this file in a secure location or vault for use with Kubernetes.
 
 # Environment variables for application secrets and configurations
+
+# This will be on a different yaml file in a live environment
 SALT_PASS_KEY=your_secret_key_here
 JWT_SECRET_KEY=sakretpo2
 MONGO_ROOT_USERNAME=mongoadmin
@@ -127,6 +129,9 @@ MONGO_EMP_PORT=27018
 MONGO_PAYSLIP_PORT=27019
 MONGO_TIMELOG_PORT=27020
 MONGO_USERS_PORT=27021
+
+# For mongo compass access localhost instead of hostname
+# mongodb://mongoadmin:mongopassword@localhost:27021/admin
 ```
 
 ```bash
