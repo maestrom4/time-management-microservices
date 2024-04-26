@@ -132,6 +132,9 @@ MONGO_PAYSLIP_PORT=27019
 MONGO_TIMELOG_PORT=27020
 MONGO_USERS_PORT=27021
 
+# info, debug, warn, etc..
+LOG_LEVEL=debug
+
 # For mongo compass access localhost instead of hostname
 # mongodb://mongoadmin:mongopassword@localhost:27021/admin
 
