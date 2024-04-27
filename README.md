@@ -18,7 +18,7 @@ System Archi
 We are making steady progress across the different services of our project. Here's the current status of each component:  
 
 ![API Gateway Service](https://img.shields.io/badge/API%20Gateway-5%25-brightgreen)
-![Auth Service](https://img.shields.io/badge/Auth%20Service-80%25-blue)
+![Auth Service](https://img.shields.io/badge/Auth%20Service-90%25-blue)
 ![File Generator Service](https://img.shields.io/badge/File%20Generator-5%25-9cf)
 ![Client](https://img.shields.io/badge/Client-5%25-brightgreen)
 ![Payslip Service](https://img.shields.io/badge/Payslip%20Service-5%25-orange)
@@ -26,7 +26,7 @@ We are making steady progress across the different services of our project. Here
 ![Time-log Service](https://img.shields.io/badge/Time--log%20Service-5%25-dda0dd)
 
 - **API Gateway Service**: 5% complete. This service is in the initial stages of development.  
-- **Auth Service**: 50% complete. This component is actively under development and currently in a Work in Progress (WIP) state.  
+- **Auth Service**: 90% complete. This component is actively under development and currently in a Work in Progress (WIP) state.  
 - **File Generator Service**: 5% complete. Initial development has started.  
 - **Client Interface**: 5% complete. Early development phase.  
 - **Payslip Service**: 5% complete. We have begun laying the groundwork for this service.  
@@ -99,16 +99,12 @@ git clone git@github.com:maestrom4/file-generator-service.git
 **ENV for Docker Compose**
 ```bash
 # .env File for Docker compose variables can be transfered to Kubernetes Deployment also.
-
 # Place this file in a secure location or vault for use with Kubernetes.
-
 # Environment variables for application secrets and configurations
 
 # This will be on a different yaml file in a live environment
-
-# This will be on a different yaml file in a live environment
-SALT_PASS_KEY=your_secret_key_here
-JWT_SECRET_KEY=sakretpo2
+SALT_PASS_KEY=dreamingbutterfly5
+JWT_SECRET_KEY=concretejaguar9
 MONGO_ROOT_USERNAME=mongoadmin
 MONGO_ROOT_PASSWORD=mongopassword
 
@@ -134,7 +130,8 @@ MONGO_USERS_PORT=27021
 
 # info, debug, warn, etc..
 LOG_LEVEL=debug
-
+EXPIRY_HOUR=24
+APP_NAME=time-mgt-app
 # For mongo compass access localhost instead of hostname
 # mongodb://mongoadmin:mongopassword@localhost:27021/admin
 
