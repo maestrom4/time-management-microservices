@@ -71,6 +71,8 @@ services:
       MONGO_INITDB_COLLECTION: ${MONGO_USERS_COLLECTION}
       MONGO_URI: ${MONGO_USERS_URI}
       LOG_LEVEL: ${LOG_LEVEL}
+      EXPIRY_HOUR: ${EXPIRY_HOUR}
+      APP_NAME: ${APP_NAME}
       # MONGO_URI: "mongodb://${MONGO_ROOT_USERNAME}:${MONGO_ROOT_PASSWORD}@mongodb:27017/admin"
     ports:
       - "8085:8080"

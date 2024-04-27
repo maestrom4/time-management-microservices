@@ -1,21 +1,28 @@
 [submodule "api-gateway-service"]
 	path = api-gateway-service
 	url = git@github.com:maestrom4/api-gateway-service.git
+	branch = develop
 [submodule "employee-service"]
 	path = employee-service
 	url = git@github.com:maestrom4/employee-service.git
+	branch = develop
 [submodule "payslip-service"]
 	path = payslip-service
 	url = git@github.com:maestrom4/payslip-service.git
+	branch = develop
 [submodule "time-log-service"]
 	path = time-log-service
 	url = git@github.com:maestrom4/time-log-service.git
+	branch = develop
 [submodule "client"]
 	path = client
 	url = git@github.com:maestrom4/client.git
+	branch = develop
 [submodule "auth-service"]
 	path = auth-service
 	url = git@github.com:maestrom4/auth-service.git
+	branch = develop
 [submodule "file-generator-service"]
 	path = file-generator-service
 	url = git@github.com:maestrom4/file-generator-service.git
+	branch = develop
