@@ -18,7 +18,7 @@ System Archi
 We are making steady progress across the different services of our project. Here's the current status of each component:  
 
 ![API Gateway Service](https://img.shields.io/badge/API%20Gateway-5%25-brightgreen)
-![Auth Service](https://img.shields.io/badge/Auth%20Service-50%25-blue)
+![Auth Service](https://img.shields.io/badge/Auth%20Service-80%25-blue)
 ![File Generator Service](https://img.shields.io/badge/File%20Generator-5%25-9cf)
 ![Client](https://img.shields.io/badge/Client-5%25-brightgreen)
 ![Payslip Service](https://img.shields.io/badge/Payslip%20Service-5%25-orange)
@@ -86,7 +86,7 @@ git clone git@github.com:maestrom4/time-log-service.git
 git clone git@github.com:maestrom4/file-generator-service.git
 ```
 - [api-gateway-service](https://github.com/maestrom4/api-gateway-service) [5%]
-- [auth-service](https://github.com/maestrom4/auth-service) [50%] WIP
+- [auth-service](https://github.com/maestrom4/auth-service) [80%] WIP
 - [file-generator-service](https://github.com/maestrom4/file-generator-service) [5%]
 - [client](https://github.com/maestrom4/client) [5%]
 - [payslip-service](https://github.com/maestrom4/payslip-service) [5%]
