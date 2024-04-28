@@ -73,6 +73,7 @@ services:
       LOG_LEVEL: ${LOG_LEVEL}
       EXPIRY_HOUR: ${EXPIRY_HOUR}
       APP_NAME: ${APP_NAME}
+      CODECOV_TOKEN: ${CODECOV_TOKEN}
       # MONGO_URI: "mongodb://${MONGO_ROOT_USERNAME}:${MONGO_ROOT_PASSWORD}@mongodb:27017/admin"
     ports:
       - "8085:8080"
