@@ -8,7 +8,6 @@
 
 This project exemplifies the orchestration of a multi-language microservice architecture within a Kubernetes landscape, utilizing Minikube for local deployment. Each microservice is containerized using Docker, incorporating a Next.js frontend with server-side rendering (SSR) for a robust user experience. The backend services are powered by Node.js with the Express framework for streamlined server-side functionality, and additional services utilize Golang with the Gin framework for performance and efficiency. The project employs TypeScript for static typing in JavaScript environments, adheres to the Atomic Design methodology for UI development to promote consistency and reuse, and leverages Redux Toolkit for effective state management in React applications. Database interactions are managed with MongoDB, with GraphQL serving as the interface for queries and mutations. The overarching aim is to demonstrate the deployment, scalability, and architectural design of a complex system within an integrated Kubernetes setting.
 
-
 System Archi
 
 
